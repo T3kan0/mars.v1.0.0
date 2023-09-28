@@ -34,7 +34,7 @@ st.markdown("<h2 style='text-align: center; color: grey;'>Merging Attendance Reg
 st.write("<h4 style='text-align: center; color: grey;'>version: 1.0.</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([2,1], gap='small')
 with col1:
-    st.markdown('<img src = "marsv1.0.0/static/logo3.png">',unsafe_allow_html=True)
+    st.markdown('<img src = "app/static/logo3.png">',unsafe_allow_html=True)
     #st.image('static/logo3.png')
 with col2:
     st.write('Welcome to the A-STEP Web Application **MARS** v.1.0. This was developed for the merging of large weekly\
