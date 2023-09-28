@@ -21,7 +21,7 @@ st.set_page_config(
 
 z, astep, logo = st.columns([0.52, 0.38, 0.25])
 with z:
-    st.markdown('<img src = "static/reg.png">',unsafe_allow_html=True)
+    st.markdown('<img src = "marsv1.0.0/static/reg.png">',unsafe_allow_html=True)
     #st.image('https://github.com/T3kan0/mars.v1.0.0/tree/main/marsv1.0.0/static/reg.png', width=250)
 with astep:
     st.markdown("<h1 style='text-align: left; color: darkred;'>A-STEP</h1>", unsafe_allow_html=True)
@@ -34,7 +34,7 @@ st.markdown("<h2 style='text-align: center; color: grey;'>Merging Attendance Reg
 st.write("<h4 style='text-align: center; color: grey;'>version: 1.0.</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([2,1], gap='small')
 with col1:
-    st.markdown('<img src = "static/logo3.png">',unsafe_allow_html=True)
+    st.markdown('<img src = "marsv1.0.0/static/logo3.png">',unsafe_allow_html=True)
     #st.image('static/logo3.png')
 with col2:
     st.write('Welcome to the A-STEP Web Application **MARS** v.1.0. This was developed for the merging of large weekly\
@@ -46,7 +46,7 @@ with col2:
                 "Combines Files Based on Columns in the Right File 👉🏾", "Combines Files Based on Columns in the Left File 👈🏾"])
 st.sidebar.markdown("<h1 style='text-align: center; color: grey;'>Centre for Teaching and Learning</h1>", unsafe_allow_html=True)
 #img = Image.open('https://github.com/T3kan0/mars/blob/main/MARSv1.01/logio.jpeg')
-st.sidebar.markdown('<img src = "static/logio.jpeg">',unsafe_allow_html=True)
+st.sidebar.markdown('<img src = "marsv1.0.0/static/logio.jpeg">',unsafe_allow_html=True)
 #st.sidebar.image('static/logio.jpeg')
 
 bulk_files = st.sidebar.file_uploader('Upload Files',
@@ -85,7 +85,7 @@ if bulk_files is not None:
             col_n1 = bytes_data.columns
         with col4:
             st.write(':blue[Type : ]',uploaded_file.type)
-            st.markdown('<img src = "static/tech.png">',unsafe_allow_html=True)
+            st.markdown('<img src = "marsv1.0.0/static/tech.png">',unsafe_allow_html=True)
             #st.image('static/tech.png', width=130)  
     elif len(n_files) >=2:
         col5, col6 = st.columns([.90, 0.10], gap='small')
@@ -95,7 +95,7 @@ if bulk_files is not None:
             col_n1 = n_files[0].columns
         with col4:
             st.write(':blue[Type : ]',uploaded_file.type)
-            st.markdown('<img src = "static/tech.png">',unsafe_allow_html=True)
+            st.markdown('<img src = "marsv1.0.0/static/tech.png">',unsafe_allow_html=True)
             #st.image('static/tech.png', width=120)
         with col5:
             st.write(':blue[Register ]',j+1)
@@ -103,7 +103,7 @@ if bulk_files is not None:
             col_n2 = n_files[1].columns
         with col6:
             st.write(':blue[Type : ]', uploaded_file.type)
-            st.markdown('<img src = "static/tech.png">',unsafe_allow_html=True)
+            st.markdown('<img src = "marsv1.0.0/static/tech.png">',unsafe_allow_html=True)
             #st.image('static/tech.png', width=120)
 
               
