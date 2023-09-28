@@ -251,7 +251,7 @@ if bulk_files is not None:
                 new_name = st.multiselect(
                     ':blue[Select New Column Name: ⚙️]',
                      ['SUBJECT', 'CATALOG NBR', 'STUDENT EMPLID',
-                      'TUTOR EMPLID', 'TYPE', 'DATE', 'START TIME','END TIME'])
+                      'TUTOR EMPLID', 'TYPE', 'DATE', 'START TIME','END TIME', 'STUDENT NAME', 'STUDENT SURNAME'])
                 if Rename:
                     progress_bar = st.progress(0)
                     for perc_completed in range(100):
