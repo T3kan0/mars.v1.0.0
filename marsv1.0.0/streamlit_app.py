@@ -47,7 +47,7 @@ with col2:
     captions = ["Default: Stacking Files Atop One Another 📕📗📘➡️📚",
                 "Combines Files Based on Columns in the Right File 👉🏾", "Combines Files Based on Columns in the Left File 👈🏾"])
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Centre for Teaching and Learning</h1>", unsafe_allow_html=True)
-st.sidebar.markdown("![Alt Text](https://i.postimg.cc/RhgyvbgL/logio.png)")
+st.sidebar.markdown("![Alt Text](https://i.postimg.cc/gJzPdRYd/logio.png)")
 #st.sidebar.markdown('<img src = "app/static/logio.jpeg" style="width:100%">', unsafe_allow_html=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Instructions</h1>", unsafe_allow_html=True)
 
