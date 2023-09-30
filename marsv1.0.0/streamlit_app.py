@@ -39,7 +39,7 @@ st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance 
 st.write("<h4 style='text-align: center; color: darkred;'>version: 1.0.0</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([0.60,0.40], gap='small')
 with col1:
-    st.markdown("![Alt Text](https://i.postimg.cc/3Nz1QnWd/ufslog.png)")
+    st.markdown("![Alt Text](https://i.postimg.cc/x1KMp0Qr/ufslog.png)")
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
     st.write('Welcome to the A-STEP Web Application **MARS** v.1.0.0. This was developed for the merging of large weekly\
