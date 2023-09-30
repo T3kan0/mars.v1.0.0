@@ -102,7 +102,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Your expander element
 with st.sidebar.expander(":blue[Read More ⤵️]"):
-    st.write(':grey[**Prepare and upload .xlsx or .csv register files**]')
+    st.write(':grey[**Prepare and upload ***.xlsx*** or ***.csv*** register files**]')
     st.write('- :orange[Add Columns to uploaded files ⤵️]')
     st.write('- :orange[Aggregate Files ⤵️]')
     st.write('- :orange[Remove Columns ⤵️]')
