@@ -42,7 +42,7 @@ with col1:
     st.markdown("![Alt Text](https://i.postimg.cc/x1KMp0Qr/ufslog.png)")
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
-    st.write('Welcome to the A-STEP Web Application **MARS** v.1.0.0. This was developed for the merging of large weekly\
+    st.write('Welcome to the A-STEP Web Application ***MARS*** ***v.1.0.0***. This was developed for the merging of large weekly\
  attendance register files for the A-STEP in-house data team, as part of their weekly data pre-processing operations.')
     genre = st.radio(
     ":red[**How Would You Like MARS to Combine Your Files?**]💡",
@@ -124,7 +124,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Contact CTL
 st.sidebar.write('📭 E: :orange[mbonanits@ufs.ac.za]')
 st.sidebar.write('📭 E: :orange[emohoanyane@ufs.ac.za]')
 st.sidebar.write('🌐 :blue[www.ufs.ac.za/ctl]')
-st.sidebar.info(':red[ 🚩 Web App Developer:] Tekano Mbonani 🚩', icon="ℹ️")
+st.sidebar.info(':red[ 🚩 Web App Developer:] Tekano Mbonani', icon="ℹ️")
 
 col3, col4 = st.columns([.90,0.10], gap='small')
 if 'column_choice' not in st.session_state:
