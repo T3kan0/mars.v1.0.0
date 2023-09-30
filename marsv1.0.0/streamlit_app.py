@@ -36,7 +36,7 @@ st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance 
 st.write("<h4 style='text-align: center; color: #090257;'>version: 1.0.0</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([2,1], gap='small')
 with col1:
-    st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+    st.markdown("![Alt Text](https://github.com/T3kan0/mars.v1.0.0/blob/main/marsv1.0.0/static/logio.gif)")
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
     st.write('Welcome to the A-STEP Web Application **MARS** v.1.0. This was developed for the merging of large weekly\
