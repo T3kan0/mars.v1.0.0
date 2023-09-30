@@ -115,7 +115,11 @@ bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
                                      accept_multiple_files=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A-STEP</h1>", unsafe_allow_html=True)
 with st.sidebar.expander(":blue[Read More ⤵️]"):
-    st.write(':red[**Prepare and upload .xlsx or .csv register files**]')
+    st.write(':red[A-STEP provides both face-to-face and blended tutorials for students. These tutorials are led by trained senior \
+    students across all 7 faculties on the Bloemfontein campus as well as the 4 faculties on QwaQwa campus.  The tutors themselves are\
+    either under- or postgraduate students, thereby making communication easier between the relevant parties.  A_STEP sessions offer regular,\
+    peer-facilitated sessions that occur out of class and after lectures, thereby integrating content with learning skills and study strategies.\
+    The work covered and facilitated in the tutorial sessions is therefore embedded within the context of a particular discipline, which is dependent on the faculty.]')
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Contact CTL & A-STEP</h1>", unsafe_allow_html=True)
 st.sidebar.write('📭 E: :orange[mbonanits@ufs.ac.za]')
 st.sidebar.write('📭 E: :orange[emohoanyane@ufs.ac.za]')
