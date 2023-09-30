@@ -20,14 +20,14 @@ st.set_page_config(
 )
 
 
-z, astep, logo = st.columns([0.25, 0.50, 0.25])
+z, astep, logo = st.columns([0.15, 0.70, 0.15])
 with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
     #st.write('📝')
     #st.markdown("<h1 style='text-align: left; color: darkred;'>📋✍🏽</h1>", unsafe_allow_html=True)
     st.markdown("![Alt Text](https://i.postimg.cc/05GkJpWY/reg.png)")
 with astep:
-    st.markdown("<h1 style='text-align: left; color: darkred;'>Academic-Student Tutorial Excellence Programme</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: left; color: darkred;'>Academic-Student Tutorial Excellence Programme</h2>", unsafe_allow_html=True)
     #st.markdown("<h6 style='text-align: left; color: grey;'>🧑🏼‍🎓 👨🏽‍🎓Supplemental</h6>", unsafe_allow_html=True)
     #st.markdown("<h6 style='text-align: left; color: grey;'>Instruction (UFS)👨🏽‍🏫</h6>", unsafe_allow_html=True)    
 with logo:
