@@ -19,7 +19,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-   
+file_ = open("app/static/logo3.png", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
 z, astep, logo = st.columns([0.52, 0.38, 0.25])
 with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
@@ -36,7 +40,12 @@ st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance 
 st.write("<h4 style='text-align: center; color: #090257;'>version: 1.0.0</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([2,1], gap='small')
 with col1:
-    st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
+    st.markdown(
+    f'<img src="data:image/png;base64,{data_url}" alt="cat gif">',
+    unsafe_allow_html=True,
+)
+    
+    #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
     st.write('Welcome to the A-STEP Web Application **MARS** v.1.0. This was developed for the merging of large weekly\
  attendance files for the A-STEP data intern team, as part of their weekly data pre-processing operations.')
