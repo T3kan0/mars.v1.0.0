@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 
-z, astep, logo = st.columns([0.10, 0.70, 0.20])
+z, astep, logo = st.columns([0.20, 0.65, 0.15])
 with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
     #st.write('📝')
