@@ -104,7 +104,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 with st.sidebar.expander(":blue[Read More ⤵️]"):
     st.write(':grey[**Prepare and Upload ***.xlsx*** or ***.csv*** Register Files**]')
     st.write('- :orange[Add Columns to the Uploaded Files ⤵️]')
-    st.write('- :orange[Aggregate Register Files into a Bulk File ⤵️]')
+    st.write('- :orange[Aggregate Register Files into Bulk File ⤵️]')
     st.write('- :orange[Remove Unwanted Columns ⤵️]')
     st.write('- :orange[Change Column Names ⤵️]')
     st.write('- :orange[Download the Aggregated File 🛸]')
