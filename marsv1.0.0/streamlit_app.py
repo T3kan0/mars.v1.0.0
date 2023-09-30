@@ -25,7 +25,7 @@ with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
     #st.write('📝')
     st.markdown("<h1 style='text-align: left; color: darkred;'>📝</h1>", unsafe_allow_html=True)
-    with astep:
+with astep:
     st.markdown("<h1 style='text-align: left; color: darkred;'>A-STEP</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: grey;'>🧑🏼‍🎓 👨🏽‍🎓Supplemental</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: grey;'>Instruction (UFS)👨🏽‍🏫</h6>", unsafe_allow_html=True)    
