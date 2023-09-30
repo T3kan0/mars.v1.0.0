@@ -37,7 +37,7 @@ with logo:
 
 st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance RegisterS (MARS)</h2>", unsafe_allow_html=True)
 st.write("<h4 style='text-align: center; color: darkred;'>version: 1.0.0</h4>", unsafe_allow_html=True)
-col1, col2 = st.columns([0.70,0.30], gap='small')
+col1, col2 = st.columns([0.60,0.40], gap='small')
 with col1:
     st.markdown("![Alt Text](https://i.postimg.cc/3Nz1QnWd/ufslog.png)")
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
