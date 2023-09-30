@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-file_ = open("app/static/logo3.png", "rb")
+file_ = open("/marsv1.0.0/static/logo3.png", "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
