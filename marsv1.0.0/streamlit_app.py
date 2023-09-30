@@ -22,13 +22,15 @@ st.set_page_config(
    
 z, astep, logo = st.columns([0.52, 0.38, 0.25])
 with z:
-    st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
+    #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
+    st.write('📝')
 with astep:
     st.markdown("<h1 style='text-align: left; color: darkred;'>A-STEP</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: grey;'>🧑🏼‍🎓 👨🏽‍🎓Supplemental</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: grey;'>Instruction (UFS)👨🏽‍🏫</h6>", unsafe_allow_html=True)    
 with logo:
-    st.markdown('<img src = "app/static/reg.png" style="width:100%">', unsafe_allow_html=True)
+    #st.markdown('<img src = "app/static/reg.png" style="width:100%">', unsafe_allow_html=True)
+    st.write('📝')
 st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance RegisterS (MARS)</h2>", unsafe_allow_html=True)
 st.write("<h4 style='text-align: center; color: #090257;'>version: 1.0.0</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns([2,1], gap='small')
