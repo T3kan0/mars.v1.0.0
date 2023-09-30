@@ -164,8 +164,9 @@ if bulk_files is not None:
             col_n1 = bytes_data.columns
         with col4:
             st.write(':blue[Type : ]',uploaded_file.type)
-            st.markdown('<img src = "app/static/tech.png" style="width:100%">', unsafe_allow_html=True)
-              
+            #st.markdown('<img src = "app/static/tech.png" style="width:100%">', unsafe_allow_html=True)
+            st.markdown("![Alt Text](https://i.postimg.cc/mrj2prg5/tech.png)")
+            
     elif len(n_files) >=2:
         col5, col6 = st.columns([.90, 0.10], gap='small')
         with col3:
