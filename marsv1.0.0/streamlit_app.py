@@ -113,7 +113,10 @@ with st.sidebar.expander(":blue[Read More ⤵️]"):
 bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
                                      type=['xlsx', 'csv'],
                                      accept_multiple_files=True)
-st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Contact CTL</h1>", unsafe_allow_html=True)
+st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A-STEP</h1>", unsafe_allow_html=True)
+with st.sidebar.expander(":blue[Read More ⤵️]"):
+    st.write(':red[**Prepare and upload .xlsx or .csv register files**]')
+st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Contact CTL & A-STEP</h1>", unsafe_allow_html=True)
 st.sidebar.write('📭 E: :orange[mbonanits@ufs.ac.za]')
 st.sidebar.write('📭 E: :orange[emohoanyane@ufs.ac.za]')
 st.sidebar.write('🌐 :blue[www.ufs.ac.za/ctl]')
