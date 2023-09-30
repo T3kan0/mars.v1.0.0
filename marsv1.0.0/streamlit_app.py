@@ -42,8 +42,8 @@ with col1:
     st.markdown("![Alt Text](https://i.postimg.cc/9QGq45jb/ufslog.png)")
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
-    st.write('Welcome to the A-STEP Web Application **MARS** v.1.0. This was developed for the merging of large weekly\
- attendance files for the A-STEP data intern team, as part of their weekly data pre-processing operations.')
+    st.write('Welcome to the A-STEP Web Application **MARS** v.1.0.0. This was developed for the merging of large weekly\
+ attendance register files for the A-STEP in-house data team, as part of their weekly data pre-processing operations.')
     genre = st.radio(
     ":red[**How Would You Like MARS to Combine Your Files?**]💡",
     [":rainbow[**Concatinate**]", ":rainbow[**Right Join**]", ":rainbow[**Left Join:**]"],
