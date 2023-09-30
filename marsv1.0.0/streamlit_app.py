@@ -27,7 +27,7 @@ with z:
     #st.markdown("<h1 style='text-align: left; color: darkred;'>📋✍🏽</h1>", unsafe_allow_html=True)
     st.markdown("![Alt Text](https://i.postimg.cc/05GkJpWY/reg.png)")
 with astep:
-    st.markdown("<h4 style='text-align: left; color: darkred;'>Academic Student Tutorial Excellence Programme</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkred;'>Academic Student Tutorial Excellence Programme🧑🏼‍🎓 👨🏽‍🎓</h4>", unsafe_allow_html=True)
     #st.markdown("<h6 style='text-align: left; color: grey;'>🧑🏼‍🎓 👨🏽‍🎓Supplemental</h6>", unsafe_allow_html=True)
     #st.markdown("<h6 style='text-align: left; color: grey;'>Instruction (UFS)👨🏽‍🏫</h6>", unsafe_allow_html=True)    
 with logo:
