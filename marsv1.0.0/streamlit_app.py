@@ -84,13 +84,13 @@ custom_css = """
     color: white; /* White text color */
 }
 
-[data-testid="stFileUploader"] .st-emotion-cache-kvdxak.e1b2p2ww15 {
+[data-testid="stFileUploader"] .st-emotion-cache-taue2i.e1b2p2ww15 {
     background-color: white;
     border: 2px solid #0072C9; /* Blue border color */
     border-radius: 10px;
 }
 
-[data-testid="stFileUploader"] .st-emotion-cache-kvdxak.e1b2p2ww15 input[type="file"] {
+[data-testid="stFileUploader"] .st-emotion-cache-taue2i.e1b2p2ww15 input[type="file"] {
     display: none;
 }
 </style>
