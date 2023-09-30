@@ -102,12 +102,12 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Your expander element
 with st.sidebar.expander(":blue[Read More ⤵️]"):
-    st.write(':grey[**Prepare and upload ***.xlsx*** or ***.csv*** register files**]')
-    st.write('- :orange[Add Columns to uploaded files ⤵️]')
-    st.write('- :orange[Aggregate Files ⤵️]')
-    st.write('- :orange[Remove Columns ⤵️]')
+    st.write(':grey[**Prepare and Upload ***.xlsx*** or ***.csv*** Register Files**]')
+    st.write('- :orange[Add Columns to the Uploaded Files ⤵️]')
+    st.write('- :orange[Aggregate the Files into One ⤵️]')
+    st.write('- :orange[Remove Unwanted Columns ⤵️]')
     st.write('- :orange[Change Column Names ⤵️]')
-    st.write('- :orange[Download Aggregated File 🛸]')
+    st.write('- :orange[Download the Aggregated File 🛸]')
 
     
 bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
