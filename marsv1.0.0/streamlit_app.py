@@ -111,6 +111,7 @@ with st.sidebar.expander(":blue[Read More ⤵️]"):
 bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
                                      type=['xlsx', 'csv'],
                                      accept_multiple_files=True)
+
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A-STEP</h1>", unsafe_allow_html=True)
 with st.sidebar.expander(":blue[Read More ⤵️]"):
     st.write(':grey[The Academic Student Tutorial Excellence Programme (A-STEP) provides both face-to-face and blended tutorials for students. These tutorials are led by trained senior \
@@ -138,6 +139,16 @@ if bulk_files is not None:
     for j, uploaded_file in enumerate(bulk_files):
         if uploaded_file.type == 'text/csv':
             bytes_data = pd.read_csv(uploaded_file, sep=',')
+            # Identify tutor columns based on a shared pattern using regular expressions
+            pattern = r'\d+: '
+            tutor_columns = [col for col in df.columns if re.match(pattern, col)]
+            # Function to replace '1' with tutor names
+            def replace_with_tutor_names(row):
+                return [re.sub(pattern, '', col) for col in tutor_columns if row[col] == 1]
+            # Apply the function to each row and create a new 'Selected Tutors' column
+            df['Selected Tutors'] = df.apply(replace_with_tutor_names, axis=1)
+            # Clean up the 'Selected Tutors' column by joining the tutor names
+            df['Selected Tutors'] = df['Selected Tutors'].apply(lambda x: ', '.join(x) if x else 'None')
             col_name = uploaded_file.name
             sub = col_name[0:4]
             cat = col_name[4:8]
