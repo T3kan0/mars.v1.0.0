@@ -11,7 +11,7 @@ import streamlit as st
 import pandas as pd
 import time
 from PIL import Image
-
+import re
 st.set_page_config(
     page_title="MARS",
     page_icon="🧊",
