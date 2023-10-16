@@ -158,6 +158,16 @@ if bulk_files is not None:
             Cat_Nb.append(cat)
         else:
             bytes_data = pd.read_excel(uploaded_file)
+            # Identify tutor columns based on a shared pattern using regular expressions
+            pattern = r'\d+: '
+            tutor_columns = [col for col in bytes_data.columns if re.match(pattern, col)]
+            # Function to replace '1' with tutor names
+            def replace_with_tutor_names(row):
+                return [re.sub(pattern, '', col) for col in tutor_columns if row[col] == 1]
+            # Apply the function to each row and create a new 'Selected Tutors' column
+            bytes_data['Selected Tutors'] = bytes_data.apply(replace_with_tutor_names, axis=1)
+            # Clean up the 'Selected Tutors' column by joining the tutor names
+            bytes_data['Selected Tutors'] = bytes_data['Selected Tutors'].apply(lambda x: ', '.join(x) if x else 'None')
             col_name = uploaded_file.name
             sub = col_name[0:4]
             cat = col_name[4:8]
