@@ -168,7 +168,8 @@ if bulk_files is not None:
             bytes_data['Selected Tutors'] = bytes_data.apply(replace_with_tutor_names, axis=1)
             # Clean up the 'Selected Tutors' column by joining the tutor names
             bytes_data['Selected Tutors'] = bytes_data['Selected Tutors'].apply(lambda x: ', '.join(x) if x else 'None')
-            col_name = uploaded_file.name
+            #col_name = uploaded_file.name
+            col_name = 'excel/xlxs'            
             sub = col_name[0:4]
             cat = col_name[4:8]
             n_files.append(bytes_data)
