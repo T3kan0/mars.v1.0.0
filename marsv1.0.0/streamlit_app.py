@@ -150,6 +150,7 @@ if bulk_files is not None:
             # Clean up the 'Selected Tutors' column by joining the tutor names
             bytes_data['Selected Tutors'] = bytes_data['Selected Tutors'].apply(lambda x: ', '.join(x) if x else 'None')
             col_name = uploaded_file.name
+            types = uploaded_file.type
             sub = col_name[0:4]
             cat = col_name[4:8]
             n_files.append(bytes_data)
@@ -168,8 +169,8 @@ if bulk_files is not None:
             bytes_data['Selected Tutors'] = bytes_data.apply(replace_with_tutor_names, axis=1)
             # Clean up the 'Selected Tutors' column by joining the tutor names
             bytes_data['Selected Tutors'] = bytes_data['Selected Tutors'].apply(lambda x: ', '.join(x) if x else 'None')
-            #col_name = uploaded_file.name
-            col_name = 'excel/xlxs'            
+            col_name = uploaded_file.name
+            types = 'excel/xlxs'            
             sub = col_name[0:4]
             cat = col_name[4:8]
             n_files.append(bytes_data)
@@ -183,7 +184,7 @@ if bulk_files is not None:
             col3.write(bytes_data.head(3))
             col_n1 = bytes_data.columns
         with col4:
-            st.write(':blue[Type : ]',uploaded_file.type)
+            st.write(':blue[Type : ]',types)
             #st.markdown('<img src = "app/static/tech.png" style="width:100%">', unsafe_allow_html=True)
             st.markdown("![Alt Text](https://i.postimg.cc/GtFMv9RX/tech.png)")
             
