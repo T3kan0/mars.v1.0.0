@@ -195,7 +195,7 @@ if bulk_files is not None:
             col3.write(n_files[0].head(2))
             col_n1 = n_files[0].columns
         with col4:
-            st.write(':blue[Type : ]',uploaded_file.type)
+            st.write(':blue[Type : ]',types)
             #st.markdown('<img src = "app/static/tech.png" style="width:100%">', unsafe_allow_html=True)
             st.markdown("![Alt Text](https://i.postimg.cc/GtFMv9RX/tech.png)")            
         with col5:
@@ -203,7 +203,7 @@ if bulk_files is not None:
             col5.write(n_files[1].head(2))
             col_n2 = n_files[1].columns
         with col6:
-            st.write(':blue[Type : ]', uploaded_file.type)
+            st.write(':blue[Type : ]', types)
             #st.markdown('<img src = "app/static/tech.png" style="width:100%">', unsafe_allow_html=True)
             st.markdown("![Alt Text](https://i.postimg.cc/GtFMv9RX/tech.png)")            
 
