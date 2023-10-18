@@ -374,10 +374,9 @@ if bulk_files is not None:
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(renam.head())          
-                # Function to split cells with multiple tutors into separate rows
                 def split_tutors(row):
                     tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})       
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1) 
                 # Concatenate the original DataFrame and the new rows
