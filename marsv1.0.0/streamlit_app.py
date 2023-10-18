@@ -298,7 +298,7 @@ if bulk_files is not None:
                     btn = st.download_button(
                         label=":red[Download Edited File]",
                         data=file,
-                        file_name='new_file',
+                        file_name='new_file.csv',
                         mime="file/csv"
               )
                 
@@ -331,7 +331,7 @@ if bulk_files is not None:
                 btn = st.download_button(
                     label=":red[Download Aggregated File]",
                     data=file,
-                    file_name='new_file',
+                    file_name='new_file.csv',
                     mime="file/csv"
               )
         else:
@@ -379,7 +379,7 @@ if bulk_files is not None:
                     btn = st.download_button(
                         label=":red[Download Aggregated File]",
                         data=file,
-                        file_name='new_file',
+                        file_name='new_file.csv',
                         mime="file/csv"
                   )
                 st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
