@@ -378,7 +378,7 @@ if bulk_files is not None:
                 # Function to split cells with multiple tutors into separate rows
                 def split_tutors(row):
                     tutors = row['TUTOR EMPLID'].split(' & ') if ' & ' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(', ')
-                return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 
                 with open('final.csv', "rb") as file:
                     btn = st.download_button(
