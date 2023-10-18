@@ -378,8 +378,8 @@ if bulk_files is not None:
                     tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
                     return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})       
                 renam.to_csv('final.csv')
-                bytes_data = pd.read_csv(renam, sep=';')                
-                renam = pd.DataFrame(bytes_data)
+                bytes_dat = pd.read_csv(renam, sep=';')                
+                renam = pd.DataFrame(bytes_dat)
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1) 
                 # Concatenate the original DataFrame and the new rows
