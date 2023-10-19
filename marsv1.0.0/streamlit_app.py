@@ -374,10 +374,8 @@ if bulk_files is not None:
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
                 More_butn = st.button(':red[Split Paired Tutors:]')
                 butn, messge = st.columns([.30, .70], gap='small')
-                with butn:
-                    st.write(':blue[Edited Bulk/Aggregated File]')
-                with messge:
-                    st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅") 
+                st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
+                st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(renam.head())                        
                 renam.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
