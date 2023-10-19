@@ -395,7 +395,7 @@ if bulk_files is not None:
             with adder:
                 d = pd.read_csv('final.csv', sep=',')
                 renam = pd.DataFrame(d)
-                st.write(renam['TUTOR EMPLID'].head(4))
+                st.write(renam['TUTOR EMPLID'].head(6))
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
