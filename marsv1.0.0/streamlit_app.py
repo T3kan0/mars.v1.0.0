@@ -372,6 +372,7 @@ if bulk_files is not None:
             if Rename:
                 for New_name, Old_name in zip(new_name, column_name):
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
+                More_butn = st.button(':red[Split Paired Tutors:]')
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(renam.head())                        
                 renam.to_csv('final.csv')
