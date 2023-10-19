@@ -409,7 +409,7 @@ if bulk_files is not None:
                         return duplicated_rows
 
                     # Apply the split_and_duplicate function to each row
-                    split_data = df.apply(split_and_duplicate, axis=1)
+                    split_data = renam.apply(split_and_duplicate, axis=1)
                     # Concatenate the results and reset the index
                     result_df = pd.concat([pd.DataFrame(sublist) for sublist in split_data], ignore_index=True)
 
