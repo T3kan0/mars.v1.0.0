@@ -411,11 +411,11 @@ if bulk_files is not None:
                 result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
 
                 # Reset the index
-                renam = result_df.reset_index(drop=True)
+                result_df = result_df.reset_index(drop=True)
                 
                 st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(renam.head())                        
-                renam.to_csv('final.csv')
+                st.write(result_df.head())                        
+                result_df.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
                         label=":red[Download Aggregated File]",
