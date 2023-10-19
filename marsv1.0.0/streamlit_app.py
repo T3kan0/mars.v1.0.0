@@ -423,7 +423,14 @@ if bulk_files is not None:
             if Add_btn:
                 st.write(':blue[Bulk/Aggregated File]')
                 st.write(result_df.head())
-
+                result_df.to_csv('final.csv')
+                with open('final.csv', "rb") as file:                                   
+                    btn = st.download_button(
+                        label=":red[Download Aggregated File]",
+                        data=file,
+                        file_name='new_file.csv',
+                        mime="file/csv"
+                  )
 
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
