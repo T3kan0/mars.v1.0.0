@@ -377,9 +377,9 @@ if bulk_files is not None:
                 def split_tutors(row):
                     tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
                     return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})       
-                renam.to_csv('final.csv')
-                bytes_dat = pd.read_csv(renam, sep=',',encoding='utf-8')                
-                renam = pd.DataFrame(bytes_dat)
+                #renam.to_csv('final.csv')
+                #bytes_dat = pd.read_csv(renam, sep=',',encoding='utf-8')                
+                #renam = pd.DataFrame(bytes_dat)
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1) 
                 # Concatenate the original DataFrame and the new rows
@@ -387,7 +387,7 @@ if bulk_files is not None:
                 # Drop rows with multiple tutors in the 'Tutors' column
                 result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
                 result_df.to_csv('final.csv')
-                with open('final.csv', "rb") as file:
+                with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
                         label=":red[Download Aggregated File]",
                         data=file,
