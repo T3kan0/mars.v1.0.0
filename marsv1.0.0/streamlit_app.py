@@ -385,45 +385,46 @@ if bulk_files is not None:
                 st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
-    More_butn = st.button(':red[Split Paired Tutors:]')
-    if len(n_files) == 0:
-        st.write(' ')
-    elif len(n_files) >=1:        
-        if More_butn:
-            def split_tutors(row):
-                tutor_emplid = row['TUTOR EMPLID']
-                if '&' in tutor_emplid:
-                    tutors = tutor_emplid.split('&')
-                elif ',' in tutor_emplid:
-                    tutors = tutor_emplid.split(',')
-                else:
-                    # Handle the case where there's no separator
-                    # You can choose to leave it as is or do something else
-                    tutors = [tutor_emplid]
-                return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
-                # Apply the function to each row and concatenate the results
-                new_rows = renam.apply(split_tutors, axis=1)
+    if edits == ":rainbow[**Change Column Names**]":
+        More_butn = st.button(':red[Split Paired Tutors:]')
+        if len(n_files) == 0:
+            st.write(' ')
+        elif len(n_files) >=1:        
+            if More_butn:
+                def split_tutors(row):
+                    tutor_emplid = row['TUTOR EMPLID']
+                    if '&' in tutor_emplid:
+                        tutors = tutor_emplid.split('&')
+                    elif ',' in tutor_emplid:
+                        tutors = tutor_emplid.split(',')
+                    else:
+                        # Handle the case where there's no separator
+                        # You can choose to leave it as is or do something else
+                        tutors = [tutor_emplid]
+                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                    # Apply the function to each row and concatenate the results
+                    new_rows = renam.apply(split_tutors, axis=1)
 
-                # Concatenate the original DataFrame and the new rows
-                result_df = pd.concat([renam, new_rows], ignore_index=True)
+                    # Concatenate the original DataFrame and the new rows
+                    result_df = pd.concat([renam, new_rows], ignore_index=True)
 
-                # Drop rows with multiple tutors in the 'Tutors' column
-                result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
+                    # Drop rows with multiple tutors in the 'Tutors' column
+                    result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
 
-                # Reset the index
-                result_df = result_df.reset_index(drop=True)
+                    # Reset the index
+                    result_df = result_df.reset_index(drop=True)
                 
-                st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(result_df.head())                        
-                result_df.to_csv('final.csv')
-                with open('final.csv', "rb") as file:                                   
-                    btn = st.download_button(
-                        label=":red[Download Aggregated File]",
-                        data=file,
-                        file_name='new_file.csv',
-                        mime="file/csv"
-                    )
-        else:
-            st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+                    st.write(':blue[Edited Bulk/Aggregated File]')
+                    st.write(result_df.head())                        
+                    result_df.to_csv('final.csv')
+                    with open('final.csv', "rb") as file:                                   
+                        btn = st.download_button(
+                            label=":red[Download Aggregated File]",
+                            data=file,
+                            file_name='new_file.csv',
+                            mime="file/csv"
+                        )
+            else:
+                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
 
