@@ -422,6 +422,8 @@ if bulk_files is not None:
                     columns_to_process = renam.columns
                     result_df = renam  # Initialize the result DataFrame with the original data
                     result_df = pd.concat(result_df.apply(split_and_duplicate, axis=1).tolist(), ignore_index=True)
+                    with st.spinner('Wait for it...'):
+                        time.sleep(3)
                     progress_bar = st.progress(0)
                     for perc_completed in range(100):
                         time.sleep(0.005)
