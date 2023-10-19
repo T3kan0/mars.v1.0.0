@@ -217,7 +217,7 @@ if bulk_files is not None:
         captions = ["Make a new column in the data files 👨🏽‍🔧",
                 "Filter data files by column names 👩🏽‍🔧",
                 "Edit column names in data files 🛠️",
-                   "Duplicate and Split rows 🛠️"])
+                   "Duplicate & Split rows 🛠️"])
     with selector:
         if edits == ":rainbow[**Add Columns**]":
             if len(n_files) == 0:
