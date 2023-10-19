@@ -386,4 +386,14 @@ if bulk_files is not None:
                 st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+        
+    if edits == "**Split & Duplicate Row Content**":
+            if len(n_files) == 0:
+                st.write(' ')
+            elif len(n_files) >=1:
+                Add_btn = st.button('Split & Duplicate Row')
+                st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')
 
+
+    else:
+        st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
