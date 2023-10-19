@@ -375,6 +375,17 @@ if bulk_files is not None:
                 More_butn = st.button(':red[Split Paired Tutors:]')
                 butn, messge = st.columns([.30, .70], gap='small')
                 st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
+                st.write(':blue[Edited Bulk/Aggregated File]')
+                st.write(renam.head())                        
+                renam.to_csv('final.csv')
+                with open('final.csv', "rb") as file:                                   
+                    btn = st.download_button(
+                        label=":red[Download Aggregated File]",
+                        data=file,
+                        file_name='new_file.csv',
+                        mime="file/csv"
+                  )
+                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")                
                 if More_butn:
                     def split_tutors(row):
                         tutor_emplid = row['TUTOR EMPLID']
@@ -399,17 +410,17 @@ if bulk_files is not None:
                     # Reset the index
                     renam = result_df.reset_index(drop=True)
                 
-                st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(renam.head())                        
-                renam.to_csv('final.csv')
-                with open('final.csv', "rb") as file:                                   
-                    btn = st.download_button(
-                        label=":red[Download Aggregated File]",
-                        data=file,
-                        file_name='new_file.csv',
-                        mime="file/csv"
-                  )
-                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+                    st.write(':blue[Edited Bulk/Aggregated File]')
+                    st.write(renam.head())                        
+                    renam.to_csv('final.csv')
+                    with open('final.csv', "rb") as file:                                   
+                        btn = st.download_button(
+                            label=":red[Download Aggregated File]",
+                            data=file,
+                            file_name='new_file.csv',
+                            mime="file/csv"
+                      )
+                    st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
                 
     else:    
