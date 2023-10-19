@@ -225,12 +225,7 @@ if bulk_files is not None:
             elif len(n_files) >=1:
                 Add_more = st.button(':red[Add Columns:]')
                 st.write(':orange[This option will add two more columns to the uploaded data files 👉🏾: ]')
-        elif edits == "rainbow[**Split & Duplicate Row Content**]":
-            if len(n_files) == 0:
-                st.write(' ')
-            elif len(n_files) >=1:                
-                Add_btn = st.button('Split & Duplicate Row')
-                st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')
+
     with adder:
          if edits == ":rainbow[**Add Columns**]":
             if len(n_files) == 0:
@@ -389,7 +384,15 @@ if bulk_files is not None:
                         file_name='new_file.csv',
                         mime="file/csv"
                   )
-                st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
+                st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")
+
+        with selector:
+            if len(n_files) == 0:
+                st.write(' ')
+        elif len(n_files) >=1:
+            if edits == "rainbow[**Split & Duplicate Row Content**]":
+                Add_btn = st.button('Split & Duplicate Row')
+                st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')    
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
         
