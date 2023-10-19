@@ -391,7 +391,9 @@ if bulk_files is not None:
         elif len(n_files) >=1:
             with selector:
                 Add_btn = st.button('Edit Rows')
-                st.write(':orange[This option will separate rows of paired tutors 👉🏾: ]')    
+                st.write(':orange[This option will separate rows of paired tutors 👉🏾: ]') 
+            with adder:
+                st.write(renam['TUTOR EMPLID'].head(4))
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
