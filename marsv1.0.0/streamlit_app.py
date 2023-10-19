@@ -399,11 +399,12 @@ if bulk_files is not None:
             with explainer:
                 if Add_btn:
                     # Split and duplicate tutors
+                    # Define the split_and_duplicate function
                     def split_and_duplicate(row):
                         new_rows = []
                         student_columns = [col for col in renam.columns if col != 'TUTOR EMPLID']
 
-                        tutor_emplids = str(row['TUTOR EMPLID']).split('&') if '&' in str(row['TUTOR EMPLID']) else str(row['TUTOR EMPLID']).split(',')
+                        tutor_emplids = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
 
                         for tutor_emplid in tutor_emplids:
                             new_row = {col: row[col] for col in student_columns}
@@ -413,10 +414,10 @@ if bulk_files is not None:
                         return pd.DataFrame(new_rows)
 
 
-                    # Apply the split_and_duplicate function to each row
-                    split_data = renam.apply(split_and_duplicate, axis=1)
-                    # Concatenate the results and reset the index
-                    result_df = pd.concat([pd.DataFrame(sublist) for sublist in split_data], ignore_index=True)
+                    # List of columns to process
+                    columns_to_process = renam.columns
+                    result_df = renam  # Initialize the result DataFrame with the original data
+                    result_df = pd.concat(result_df.apply(split_and_duplicate, axis=1).tolist(), ignore_index=True)
 
                     with st.spinner('Wait for it...'):
                         time.sleep(3)
