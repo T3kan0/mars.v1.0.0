@@ -371,8 +371,7 @@ if bulk_files is not None:
         elif len(n_files) >=1:
             if Rename:
                 for New_name, Old_name in zip(new_name, column_name):
-                    
-                renam.columns = renam.columns.str.replace(Old_name, New_name)
+                    renam.columns = renam.columns.str.replace(Old_name, New_name)
                 def split_tutors(row):
                     tutor_emplid = row['TUTOR EMPLID']
                     if '&' in tutor_emplid:
