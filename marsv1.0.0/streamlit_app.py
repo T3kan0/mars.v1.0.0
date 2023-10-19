@@ -404,7 +404,9 @@ if bulk_files is not None:
                         new_rows = []
                         student_columns = [col for col in renam.columns if col != 'TUTOR EMPLID']
 
-                        tutor_emplids = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
+                        # Ensure 'TUTOR EMPLID' is treated as a string
+                        tutor_emplid_str = str(row['TUTOR EMPLID'])
+                        tutor_emplids = tutor_emplid_str.split('&') if '&' in tutor_emplid_str else tutor_emplid_str.split(',')
 
                         for tutor_emplid in tutor_emplids:
                             new_row = {col: row[col] for col in student_columns}
@@ -412,6 +414,7 @@ if bulk_files is not None:
                             new_rows.append(new_row)
 
                         return pd.DataFrame(new_rows)
+
 
 
                     # List of columns to process
