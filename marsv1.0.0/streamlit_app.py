@@ -398,9 +398,9 @@ if bulk_files is not None:
     elif len(n_files) >=1:
         if edits == ":rainbow[**Change Column Names**]":
             if More_butn:
-                    #bytes_dat = pd.read_csv('final.csv', sep=',')
-                    #split = pd.DataFrame.from_dict(bytes_dat)
-                    new_rows = renam.apply(split_and_duplicate, axis=1)
+                    bytes_dat = pd.read_csv('final.csv', sep=',')
+                    split = pd.DataFrame(bytes_dat)
+                    new_rows = split.apply(split_and_duplicate, axis=1)
                     result_df = pd.concat(new_rows.explode().tolist(), ignore_index=True)
                 
                     st.write(':blue[Edited Bulk/Aggregated File]')
