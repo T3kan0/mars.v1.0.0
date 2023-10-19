@@ -386,40 +386,51 @@ if bulk_files is not None:
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
     More_butn = st.button(':red[Split Paired Tutors:]')
-    # Function to split tutor names and duplicate rows
     def split_and_duplicate(row):
-        tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-        result = []
-        for tutor in tutors:
-            result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
-        return result    
+        tutors = row['TUTOR EMPLID']
+        if '&' in tutors:
+            tutors = tutors.split('&')
+        elif ',' in tutors:
+            tutors = tutors.split(',')
+        else:
+            # Handle the case where there's no separator
+            # You can choose to leave it as is or do something else
+            tutors = [tutors]
+    
+        # Create a list of dictionaries for each tutor
+        tutor_dicts = [{'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor} for tutor in tutors]
+    
+        # Create a DataFrame from the list of dictionaries
+        result_df = pd.DataFrame(tutor_dicts)
+    
+        return result_df
+
     if len(n_files) == 0:
         st.write(' ')
     elif len(n_files) >=1:
-        if edits == ":rainbow[**Change Column Names**]":
-            if More_butn:
-                bytes_dat = pd.read_csv('final.csv', sep=',')
-                split = pd.DataFrame(bytes_dat)
+        if More_butn:
+            bytes_dat = pd.read_csv('final.csv', sep=',')
+            split = pd.DataFrame(bytes_dat)
     
-                # Apply the split_and_duplicate function to each row and explode the resulting Series
-                new_rows = split.apply(split_and_duplicate, axis=1)
-                new_rows = new_rows.explode()
+            # Apply the split_and_duplicate function to each row and explode the resulting Series
+            new_rows = split.apply(split_and_duplicate, axis=1)
+            new_rows = new_rows.explode()
 
-                # Reset the index to get a DataFrame with your desired structure
-                result_df = new_rows.reset_index(drop=True)
+            # Reset the index to get a DataFrame with your desired structure
+            result_df = new_rows.reset_index(drop=True)
 
-                st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(result_df.head())
+            st.write(':blue[Edited Bulk/Aggregated File]')
+            st.write(result_df.head())
 
-                result_df.to_csv('split.csv')
-                with open('split.csv', "rb") as file:                                   
-                    btn = st.download_button(
+            result_df.to_csv('split.csv')
+            with open('split.csv', "rb") as file:                                   
+                btn = st.download_button(
                             label=":red[Download Aggregated File]",
                             data=file,
                             file_name='new_file.csv',
                             mime="file/csv"
                         )
-            else:
-                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+        else:
+            st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
 
