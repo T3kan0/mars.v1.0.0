@@ -386,7 +386,7 @@ if bulk_files is not None:
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1)
                 # Concatenate the original DataFrame and the new rows
-                result_df = pd.concat([split, new_rows], ignore_index=True)
+                result_df = pd.concat([renam, new_rows], ignore_index=True)
 
                 # Drop rows with multiple tutors in the 'Tutors' column
                 result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
