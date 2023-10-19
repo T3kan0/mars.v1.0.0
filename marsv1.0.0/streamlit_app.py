@@ -395,5 +395,5 @@ if bulk_files is not None:
                 st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')
 
 
-    else:
-        st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+    #else:
+        #st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
