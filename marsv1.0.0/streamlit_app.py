@@ -393,6 +393,8 @@ if bulk_files is not None:
                 Add_btn = st.button('Edit Rows')
                 st.write(':orange[This option will separate rows of paired tutors 👉🏾: ]') 
             with adder:
+                d = pd.read_csv('final.csv', sep=',')
+                renam = pd.DataFrame(d)
                 st.write(renam['TUTOR EMPLID'].head(4))
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
