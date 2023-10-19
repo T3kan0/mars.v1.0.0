@@ -371,20 +371,21 @@ if bulk_files is not None:
         elif len(n_files) >=1:
             if Rename:
                 for New_name, Old_name in zip(new_name, column_name):
-                    renam.columns = renam.columns.str.replace(Old_name, New_name)
-                    def split_tutors(row):
-                        tutor_emplid = row['TUTOR EMPLID']
-                        if '&' in tutor_emplid:
-                            tutors = tutor_emplid.split('&')
-                        elif ',' in tutor_emplid:
-                            tutors = tutor_emplid.split(',')
-                        else:
-                            # Handle the case where there's no separator
-                            # You can choose to leave it as is or do something else
-                            tutors = [tutor_emplid]
-                        return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
-                    # Apply the function to each row and concatenate the results
-                    new_rows = renam.apply(split_tutors, axis=1)
+                    
+                renam.columns = renam.columns.str.replace(Old_name, New_name)
+                def split_tutors(row):
+                    tutor_emplid = row['TUTOR EMPLID']
+                    if '&' in tutor_emplid:
+                        tutors = tutor_emplid.split('&')
+                    elif ',' in tutor_emplid:
+                        tutors = tutor_emplid.split(',')
+                    else:
+                        # Handle the case where there's no separator
+                        # You can choose to leave it as is or do something else
+                        tutors = [tutor_emplid]
+                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                # Apply the function to each row and concatenate the results
+                new_rows = renam.apply(split_tutors, axis=1)
 
                 
                 st.write(':blue[Edited Bulk/Aggregated File]')
