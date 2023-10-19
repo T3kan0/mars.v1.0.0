@@ -375,17 +375,24 @@ if bulk_files is not None:
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(renam.head())          
                 def split_tutors(row):
-                    tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})       
-                #renam.to_csv('final.csv')
-                #bytes_dat = pd.read_csv(renam, sep=',',encoding='utf-8')                
-                #renam = pd.DataFrame(bytes_dat)
+                    tutor_emplid = row['TUTOR EMPLID']
+                if '&' in tutor_emplid:
+                    tutors = tutor_emplid.split('&')
+                elif ',' in tutor_emplid:
+                    tutors = tutor_emplid.split(',')
+                else:
+                    # Handle the case where there's no separator
+                    # You can choose to leave it as is or do something else
+                    tutors = [tutor_emplid]
+                return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
-                new_rows = renam.apply(split_tutors, axis=1) 
+                new_rows = df.apply(split_tutors, axis=1)
+
                 # Concatenate the original DataFrame and the new rows
-                result_df = pd.concat([renam, new_rows], ignore_index=True) 
+                result_df = pd.concat([df, new_rows], ignore_index=True)
+
                 # Drop rows with multiple tutors in the 'Tutors' column
-                result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
+                result_df = result_df[result_df['Tutors'].str.len() == 1]                
                 result_df.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
