@@ -384,7 +384,7 @@ if bulk_files is not None:
                     # Handle the case where there's no separator
                     # You can choose to leave it as is or do something else
                     tutors = [tutor_emplid]
-                return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1)
 
