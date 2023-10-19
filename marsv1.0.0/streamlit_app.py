@@ -392,7 +392,7 @@ if bulk_files is not None:
         st.write(' ')
     elif len(n_files) >=1:
         if edits == "**Split & Duplicate Row Content**":
-            with selector:
+            with explainer:
                 Add_btn = st.button('Split & Duplicate Row')
                 st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')
 
