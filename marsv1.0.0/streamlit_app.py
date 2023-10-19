@@ -385,11 +385,17 @@ if bulk_files is not None:
                     return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1)
+                # Concatenate the original DataFrame and the new rows
+                result_df = pd.concat([split, new_rows], ignore_index=True)
 
-                
+                # Drop rows with multiple tutors in the 'Tutors' column
+                result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
+
+                # Reset the index
+                result_df = result_df.reset_index(drop=True)                
                 st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(renam.head())                        
-                renam.to_csv('final.csv')
+                st.write(result_df.head())                        
+                result_df.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
                         label=":red[Download Aggregated File]",
