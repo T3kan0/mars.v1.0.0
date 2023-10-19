@@ -372,9 +372,6 @@ if bulk_files is not None:
             if Rename:
                 for New_name, Old_name in zip(new_name, column_name):
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
-                More_butn = st.button(':red[Split Paired Tutors:]')
-                butn, messge = st.columns([.30, .70], gap='small')
-                st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(renam.head())                        
                 renam.to_csv('final.csv')
@@ -385,7 +382,10 @@ if bulk_files is not None:
                         file_name='new_file.csv',
                         mime="file/csv"
                   )
-                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")                
+                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
+            More_butn = st.button(':red[Split Paired Tutors:]')
+            #butn, messge = st.columns([.30, .70], gap='small')
+            st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
             if More_butn:
                 def split_tutors(row):
                     tutor_emplid = row['TUTOR EMPLID']
