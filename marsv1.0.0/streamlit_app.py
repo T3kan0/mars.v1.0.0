@@ -386,10 +386,10 @@ if bulk_files is not None:
                     tutors = [tutor_emplid]
                 return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
-                new_rows = df.apply(split_tutors, axis=1)
+                new_rows = renam.apply(split_tutors, axis=1)
 
                 # Concatenate the original DataFrame and the new rows
-                result_df = pd.concat([df, new_rows], ignore_index=True)
+                result_df = pd.concat([renam, new_rows], ignore_index=True)
 
                 # Drop rows with multiple tutors in the 'Tutors' column
                 result_df = result_df[result_df['Tutors'].str.len() == 1]                
