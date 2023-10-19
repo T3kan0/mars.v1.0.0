@@ -376,15 +376,15 @@ if bulk_files is not None:
                 st.write(renam.head())          
                 def split_tutors(row):
                     tutor_emplid = row['TUTOR EMPLID']
-                if '&' in tutor_emplid:
-                    tutors = tutor_emplid.split('&')
-                elif ',' in tutor_emplid:
-                    tutors = tutor_emplid.split(',')
-                else:
+                    if '&' in tutor_emplid:
+                        tutors = tutor_emplid.split('&')
+                    elif ',' in tutor_emplid:
+                        tutors = tutor_emplid.split(',')
+                    else:
                     # Handle the case where there's no separator
                     # You can choose to leave it as is or do something else
-                    tutors = [tutor_emplid]
-                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                        tutors = [tutor_emplid]
+                return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1)
 
