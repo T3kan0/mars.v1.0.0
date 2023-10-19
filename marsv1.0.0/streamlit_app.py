@@ -408,12 +408,12 @@ if bulk_files is not None:
         st.write(' ')
     elif len(n_files) >=1:
         if More_butn:
-            bytes_dat = pd.read_csv('final.csv', sep=',')
-            split = pd.DataFrame(bytes_dat)
+            #bytes_dat = pd.read_csv('final.csv', sep=',')
+            #split = pd.DataFrame(bytes_dat)
     
             # Apply the split_and_duplicate function to each row and explode the resulting Series
-            new_rows = split.apply(split_and_duplicate, axis=1)
-            result_df = pd.concat([new_rows] + [split] * len(new_rows), ignore_index=True)
+            new_rows = renam.apply(split_and_duplicate, axis=1)
+            result_df = pd.concat([new_rows] + [renam] * len(new_rows), ignore_index=True)
             # Reset the index to get a DataFrame with your desired structure
             result_df = new_rows.reset_index(drop=True)
 
