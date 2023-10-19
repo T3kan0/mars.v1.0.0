@@ -375,16 +375,16 @@ if bulk_files is not None:
                 # Function to split tutor names and duplicate rows
                 def split_and_duplicate(row):
                     tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-                    duplicated_rows = pd.DataFrame({
-                        'STUDENT EMPLID': [row['STUDENT EMPLID']] * len(tutors),
-                        'TUTOR EMPLID': tutors
-                    })
-                    return duplicated_rows
+                    result = []
+                    for tutor in tutors:
+                        result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
+                    return result
+
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_and_duplicate, axis=1)
 
                 # Concatenate the duplicated rows
-                result_df = pd.concat(new_rows.to_list(), ignore_index=True)
+                result_df = pd.concat(new_rows.explode().tolist(), ignore_index=True)
 
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(result_df.head())                        
