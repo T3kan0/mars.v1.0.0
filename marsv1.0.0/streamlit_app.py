@@ -398,16 +398,22 @@ if bulk_files is not None:
     elif len(n_files) >=1:
         if edits == ":rainbow[**Change Column Names**]":
             if More_butn:
-                    bytes_dat = pd.read_csv('final.csv', sep=',')
-                    split = pd.DataFrame(bytes_dat)
-                    new_rows = split.apply(split_and_duplicate, axis=1)
-                    result_df = pd.concat(new_rows.explode().tolist(), ignore_index=True)
-                
-                    st.write(':blue[Edited Bulk/Aggregated File]')
-                    st.write(result_df.head())                        
-                    result_df.to_csv('split.csv')
-                    with open('split.csv', "rb") as file:                                   
-                        btn = st.download_button(
+                bytes_dat = pd.read_csv('final.csv', sep=',')
+                split = pd.DataFrame(bytes_dat)
+    
+                # Apply the split_and_duplicate function to each row and explode the resulting Series
+                new_rows = split.apply(split_and_duplicate, axis=1)
+                new_rows = new_rows.explode()
+
+                # Reset the index to get a DataFrame with your desired structure
+                result_df = new_rows.reset_index(drop=True)
+
+                st.write(':blue[Edited Bulk/Aggregated File]')
+                st.write(result_df.head())
+
+                result_df.to_csv('split.csv')
+                with open('split.csv', "rb") as file:                                   
+                    btn = st.download_button(
                             label=":red[Download Aggregated File]",
                             data=file,
                             file_name='new_file.csv',
