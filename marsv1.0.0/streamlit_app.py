@@ -372,23 +372,9 @@ if bulk_files is not None:
             if Rename:
                 for New_name, Old_name in zip(new_name, column_name):
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
-                # Function to split tutor names and duplicate rows
-                def split_and_duplicate(row):
-                    tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-                    result = []
-                    for tutor in tutors:
-                        result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
-                    return result
-
-                # Apply the function to each row and concatenate the results
-                new_rows = renam.apply(split_and_duplicate, axis=1)
-
-                # Concatenate the duplicated rows
-                result_df = pd.concat(new_rows.explode().tolist(), ignore_index=True)
-
                 st.write(':blue[Edited Bulk/Aggregated File]')
                 st.write(result_df.head())                        
-                result_df.to_csv('final.csv')
+                renam.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
                         label=":red[Download Aggregated File]",
@@ -400,35 +386,22 @@ if bulk_files is not None:
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
     More_butn = st.button(':red[Split Paired Tutors:]')
+    # Function to split tutor names and duplicate rows
+    def split_and_duplicate(row):
+        tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
+        result = []
+        for tutor in tutors:
+            result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
+        return result    
     if len(n_files) == 0:
         st.write(' ')
     elif len(n_files) >=1:
         if edits == ":rainbow[**Change Column Names**]":
             if More_butn:
-                def split_tutors(row):
-                    tutor_emplid = row['TUTOR EMPLID']
-                    if '&' in tutor_emplid:
-                        tutors = tutor_emplid.split('&')
-                    elif ',' in tutor_emplid:
-                        tutors = tutor_emplid.split(',')
-                    else:
-                        # Handle the case where there's no separator
-                        # You can choose to leave it as is or do something else
-                        tutors = [tutor_emplid]
-                    return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                     bytes_dat = pd.read_csv('final.csv', sep=',')
                     split = pd.DataFrame.from_dict(bytes_dat)
-                    # Apply the function to each row and concatenate the results
-                    new_rows = split.apply(split_tutors, axis=1)
-
-                    # Concatenate the original DataFrame and the new rows
-                    result_df = pd.concat([split, new_rows], ignore_index=True)
-
-                    # Drop rows with multiple tutors in the 'Tutors' column
-                    result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
-
-                    # Reset the index
-                    result_df = result_df.reset_index(drop=True)
+                    new_rows = split.apply(split_and_duplicate, axis=1)
+                    result_df = pd.concat(new_rows.explode().tolist(), ignore_index=True)
                 
                     st.write(':blue[Edited Bulk/Aggregated File]')
                     st.write(result_df.head())                        
