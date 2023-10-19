@@ -375,10 +375,10 @@ if bulk_files is not None:
                 # Function to split tutor names and duplicate rows
                 def split_and_duplicate(row):
                     tutors = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
-                    result = []
-                    for tutor in tutors:
-                        result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
-                    return result
+                result = []
+                for tutor in tutors:
+                    result.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
+                return result
 
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_and_duplicate, axis=1)
