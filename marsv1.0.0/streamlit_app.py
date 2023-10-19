@@ -225,7 +225,7 @@ if bulk_files is not None:
             elif len(n_files) >=1:
                 Add_more = st.button(':red[Add Columns:]')
                 st.write(':orange[This option will add two more columns to the uploaded data files 👉🏾: ]')
-        elif edits == "**Split & Duplicate Row Content**":
+        elif edits == "rainbow[**Split & Duplicate Row Content**]":
             if len(n_files) == 0:
                 st.write(' ')
             elif len(n_files) >=1:                
