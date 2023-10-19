@@ -398,25 +398,15 @@ if bulk_files is not None:
                 st.write(renam['TUTOR EMPLID'].head(6))
             with explainer:
                 if Add_btn:
-                    # Define the split_and_duplicate function
+                    # Split and duplicate tutors
                     def split_and_duplicate(row):
-                        tutor_emplid = row['TUTOR EMPLID']
-    
-                        if isinstance(tutor_emplid, str):
-                        # Handle the case when 'TUTOR EMPLID' is a string
-                            if '&' in tutor_emplid:
-                                tutors = tutor_emplid.split('&')
-                            elif ',' in tutor_emplid:
-                                tutors = tutor_emplid.split(',')
-                            else:
-                                # Handle the case where there's no separator
-                                tutors = [tutor_emplid]
-                        else:
-                            # Handle the case when 'TUTOR EMPLID' is a float (or other data type)
-                            # You can choose to leave it as is or do something else
-                            tutors = [tutor_emplid]
-    
-                            return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
+                        tutor_emplids = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
+                        duplicated_rows = []
+                        for tutor_emplid in tutor_emplids:
+                            duplicated_row = row.copy()
+                            duplicated_row['TUTOR EMPLID'] = tutor_emplid
+                            duplicated_rows.append(duplicated_row)
+                        return duplicated_rows
 
                     # List of columns to process
                     columns_to_process = renam.columns
