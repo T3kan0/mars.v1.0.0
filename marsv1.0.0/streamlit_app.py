@@ -387,7 +387,7 @@ if bulk_files is not None:
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
     if Rename:
         More_butn = st.button(':red[Split Paired Tutors:]')
-        #st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
+        #st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors👍🏽]', icon="✅")
         if len(n_files) == 0:
             st.write(' ')
         elif len(n_files) >=1:        
