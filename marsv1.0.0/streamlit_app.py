@@ -373,7 +373,7 @@ if bulk_files is not None:
                 for New_name, Old_name in zip(new_name, column_name):
                     renam.columns = renam.columns.str.replace(Old_name, New_name)
                 st.write(':blue[Edited Bulk/Aggregated File]')
-                st.write(result_df.head())                        
+                st.write(renam.head())                        
                 renam.to_csv('final.csv')
                 with open('final.csv', "rb") as file:                                   
                     btn = st.download_button(
