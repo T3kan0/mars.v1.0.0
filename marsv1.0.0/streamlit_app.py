@@ -382,9 +382,9 @@ if bulk_files is not None:
                         file_name='new_file.csv',
                         mime="file/csv"
                   )
-                st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")                         
+                st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
     else:    
-        st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")
+        st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
     if Rename:
         More_butn = st.button(':red[Split Paired Tutors:]')
         #st.success(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="✅")
