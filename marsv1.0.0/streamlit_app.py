@@ -385,12 +385,8 @@ if bulk_files is not None:
                     return pd.Series({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutors})
                 # Apply the function to each row and concatenate the results
                 new_rows = renam.apply(split_tutors, axis=1)
-                # Concatenate the original DataFrame and the new rows
-                result_df = pd.concat([renam, new_rows], ignore_index=True)
-
-                # Drop rows with multiple tutors in the 'Tutors' column
-                result_df = result_df[result_df['TUTOR EMPLID'].str.len() == 1]
-
+                # Explode the DataFrame to duplicate rows for each tutor
+                result_df = new_rows.explode('TUTOR EMPLID')
                 # Reset the index
                 result_df = result_df.reset_index(drop=True)                
                 st.write(':blue[Edited Bulk/Aggregated File]')
