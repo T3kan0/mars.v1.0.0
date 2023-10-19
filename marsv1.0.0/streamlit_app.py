@@ -213,10 +213,11 @@ if bulk_files is not None:
     with editer:   
         edits = st.radio(
     ":red[**How Would You Like MARS to Edit Your Files?**]💡",
-    [":rainbow[**Add Columns**]", ":rainbow[**Remove Columns**]",":rainbow[**Change Column Names**]"],
+    [":rainbow[**Add Columns**]", ":rainbow[**Remove Columns**]",":rainbow[**Change Column Names**]", ":rainbow[**Split and Duplicate Row Content**]"],
         captions = ["Make a new column in the data files 👨🏽‍🔧",
                 "Filter data files by column names 👩🏽‍🔧",
-                "Edit column names in data files 🛠️"])
+                "Edit column names in data files 🛠️",
+                   "Duplicate and Split rows 🛠️"])
     with selector:
         if edits == ":rainbow[**Add Columns**]":
             if len(n_files) == 0:
