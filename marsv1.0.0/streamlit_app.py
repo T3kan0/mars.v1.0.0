@@ -428,7 +428,10 @@ if bulk_files is not None:
                     for perc_completed in range(100):
                         time.sleep(0.005)
                     progress_bar.progress(perc_completed+1)
-                    st.success('Files Successfully Edited!', icon="✅") 
+                    st.success('Files Successfully Edited!', icon="✅")
+            if Add_btn:
+                st.write(':blue[Bulk/Aggregated File]')
+                st.write(result_df.head())
 
 
     else:    
