@@ -385,49 +385,4 @@ if bulk_files is not None:
                 st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
-    More_butn = st.button(':red[Split Paired Tutors:]')
-    def split_and_duplicate(row):
-        tutors = row['TUTOR EMPLID']
-        tutor_list = []
-
-        if '&' in tutors:
-            tutor_list = tutors.split('&')
-        elif ',' in tutors:
-            tutor_list = tutors.split(',')
-        else:
-            tutor_list = [tutors]
-
-        duplicated_rows = []
-        for tutor in tutor_list:
-            duplicated_rows.append({'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor})
-
-        return pd.DataFrame(duplicated_rows)
-
-    if len(n_files) == 0:
-        st.write(' ')
-    elif len(n_files) >=1:
-        if More_butn:
-            #bytes_dat = pd.read_csv('final.csv', sep=',')
-            #split = pd.DataFrame(bytes_dat)
-    
-            # Apply the split_and_duplicate function to each row and explode the resulting Series
-            new_rows = renam.apply(split_and_duplicate, axis=1)
-            result_df = pd.concat(new_rows.tolist(), ignore_index=True)
-            # Reset the index to get a DataFrame with your desired structure
-            result_df = new_rows.reset_index(drop=True)
-
-            st.write(':blue[Edited Bulk/Aggregated File]')
-            st.write(result_df.head())
-
-            result_df.to_csv('split.csv')
-            with open('split.csv', "rb") as file:                                   
-                btn = st.download_button(
-                            label=":red[Download Aggregated File]",
-                            data=file,
-                            file_name='new_file.csv',
-                            mime="file/csv"
-                        )
-        else:
-            st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
-
 
