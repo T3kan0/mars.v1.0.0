@@ -400,13 +400,13 @@ if bulk_files is not None:
                 if Add_btn:
                     # Split and duplicate tutors
                     def split_and_duplicate(row):
-                        tutor_emplids = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
+                        tutor_emplids = str(row['TUTOR EMPLID']).split('&') if '&' in str(row['TUTOR EMPLID']) else str(row['TUTOR EMPLID']).split(',')
                         duplicated_rows = []
                         for tutor_emplid in tutor_emplids:
                             duplicated_row = row.copy()
                             duplicated_row['TUTOR EMPLID'] = tutor_emplid
                             duplicated_rows.append(duplicated_row)
-                        return duplicated_rows
+                            return duplicated_rows
 
                     # Apply the split_and_duplicate function to each row
                     split_data = renam.apply(split_and_duplicate, axis=1)
