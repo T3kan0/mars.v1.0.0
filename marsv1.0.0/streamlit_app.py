@@ -385,11 +385,11 @@ if bulk_files is not None:
                 st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")                         
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
-    if edits == ":rainbow[**Change Column Names**]":
-        More_butn = st.button(':red[Split Paired Tutors:]')
-        if len(n_files) == 0:
-            st.write(' ')
-        elif len(n_files) >=1:        
+    More_butn = st.button(':red[Split Paired Tutors:]')
+    if len(n_files) == 0:
+        st.write(' ')
+    elif len(n_files) >=1:
+        if edits == ":rainbow[**Change Column Names**]":
             if More_butn:
                 def split_tutors(row):
                     tutor_emplid = row['TUTOR EMPLID']
