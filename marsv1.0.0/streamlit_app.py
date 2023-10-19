@@ -385,13 +385,13 @@ if bulk_files is not None:
                         mime="file/csv"
                   )
                 st.info(':orange[Well Done!! Ready to Split Rows with Paired Tutors.]', icon="ℹ️")
+    if edits == "rainbow[**Split & Duplicate Row Content**]":
         with selector:
-            if edits == "rainbow[**Split & Duplicate Row Content**]":
-                Add_btn = st.button('Split & Duplicate Row')
-                if len(n_files) == 0:
-                    st.write(' ')
-                elif len(n_files) >=1:
-                    st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')    
+            Add_btn = st.button('Split & Duplicate Row')
+            if len(n_files) == 0:
+                st.write(' ')
+            elif len(n_files) >=1:
+                st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')    
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
