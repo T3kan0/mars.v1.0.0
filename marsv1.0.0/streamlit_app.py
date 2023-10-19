@@ -390,8 +390,8 @@ if bulk_files is not None:
             st.write(' ')
         elif len(n_files) >=1:
             with selector:
-                Add_btn = st.button('Split & Duplicate Row')
-                st.write(':orange[This option will separate rows with paired tutors 👉🏾: ]')    
+                Add_btn = st.button('Edit Rows')
+                st.write(':orange[This option will separate rows of paired tutors 👉🏾: ]')    
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
