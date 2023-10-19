@@ -386,24 +386,23 @@ if bulk_files is not None:
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
     More_butn = st.button(':red[Split Paired Tutors:]')
+    # Define a custom function to split tutor names and duplicate rows
     def split_and_duplicate(row):
         tutors = row['TUTOR EMPLID']
+        tutor_list = []
+    
         if '&' in tutors:
-            tutors = tutors.split('&')
+            tutor_list = tutors.split('&')
         elif ',' in tutors:
-            tutors = tutors.split(',')
+            tutor_list = tutors.split(',')
         else:
-            # Handle the case where there's no separator
-            # You can choose to leave it as is or do something else
-            tutors = [tutors]
+            # If there are no separators, treat the whole string as one tutor
+            tutor_list = [tutors]
     
         # Create a list of dictionaries for each tutor
-        tutor_dicts = [{'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor} for tutor in tutors]
+        tutor_dicts = [{'STUDENT EMPLID': row['STUDENT EMPLID'], 'TUTOR EMPLID': tutor} for tutor in tutor_list]
     
-        # Create a DataFrame from the list of dictionaries
-        result_df = pd.DataFrame(tutor_dicts)
-    
-        return result_df
+        return pd.DataFrame(tutor_dicts)
 
     if len(n_files) == 0:
         st.write(' ')
@@ -414,8 +413,7 @@ if bulk_files is not None:
     
             # Apply the split_and_duplicate function to each row and explode the resulting Series
             new_rows = split.apply(split_and_duplicate, axis=1)
-            new_rows = new_rows.explode()
-
+            result_df = pd.concat([new_rows] + [split] * len(new_rows), ignore_index=True)
             # Reset the index to get a DataFrame with your desired structure
             result_df = new_rows.reset_index(drop=True)
 
