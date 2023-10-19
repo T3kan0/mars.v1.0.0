@@ -396,6 +396,31 @@ if bulk_files is not None:
                 d = pd.read_csv('final.csv', sep=',')
                 renam = pd.DataFrame(d)
                 st.write(renam['TUTOR EMPLID'].head(6))
+            with explainer:
+                if Add_btn:
+                    # Define the split_and_duplicate function
+                    def split_and_duplicate(row):
+                        new_rows = []
+                        student_columns = [col for col in renam.columns if col != 'TUTOR EMPLID']
+                        tutor_emplids = row['TUTOR EMPLID'].split('&') if '&' in row['TUTOR EMPLID'] else row['TUTOR EMPLID'].split(',')
+
+                        for tutor_emplid in tutor_emplids:
+                            new_row = {col: row[col] for col in student_columns}
+                            new_row['TUTOR EMPLID'] = tutor_emplid
+                            new_rows.append(new_row)
+
+                        return pd.DataFrame(new_rows)
+                    # List of columns to process
+                    columns_to_process = renam.columns
+                    result_df = renam  # Initialize the result DataFrame with the original data
+                    result_df = pd.concat(result_df.apply(split_and_duplicate, axis=1).tolist(), ignore_index=True)
+                    progress_bar = st.progress(0)
+                    for perc_completed in range(100):
+                        time.sleep(0.005)
+                    progress_bar.progress(perc_completed+1)
+                    st.success('Files Successfully Edited!', icon="✅") 
+
+
     else:    
         st.info(':red[ 🚩 Remember to Upload Your Files] 🚩', icon="ℹ️")
 
