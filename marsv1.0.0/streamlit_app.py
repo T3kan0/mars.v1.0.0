@@ -405,7 +405,7 @@ if bulk_files is not None:
                         student_columns = [col for col in renam.columns if col != 'TUTOR EMPLID']
 
                         # Convert 'TUTOR EMPLID' to string and then split
-                        tutor_emplids = str(row['TUTOR EMPLID']).split('&') if '&' in str(row['TUTOR EMPLID']) elif ', ' in str(row['TUTOR EMPLID']) str(row['TUTOR EMPLID']).split(', ') else str(row['TUTOR EMPLID']).split(',')
+                        tutor_emplids = str(row['TUTOR EMPLID']).split('&') if '&' in str(row['TUTOR EMPLID']) else str(row['TUTOR EMPLID']).split(', ')
 
                         for tutor_emplid in tutor_emplids:
                             new_row = {col: row[col] for col in student_columns}
