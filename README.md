@@ -16,6 +16,6 @@ You will need to install the following software on your system in order to run/e
 ### Running the code
 To run the MARS locally, one must have an anaconda/conda environment set up. Load the environment, navigate to the directory with the app then run the **mars.py** code:
 
-> $ streamlit run mars.py
+> $ streamlit run streamlit_app.py
 
 The Web Application has successfully been deployed on the streamlit cloud, users can access it here: https://marsv100-da5bwqvb8pdtbck8yjqdme.streamlit.app/
