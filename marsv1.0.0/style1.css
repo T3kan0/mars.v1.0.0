@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
 }
-[data-testid="stExpander"] [data-testid="stExpanderDetails"] {
+details[open] div[data-testid="stExpanderDetails"] {    
     background-color: #FFFFFF;
     border: 2px solid #0E0153;
     padding: 20px;
