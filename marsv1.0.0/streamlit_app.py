@@ -36,7 +36,7 @@ with col1:
     #st.markdown('<img src = "app/static/logo3.png" style="width:90%">', unsafe_allow_html=True)
 with col2:
     st.write('Welcome to the A_STEP Web Application ***MARS*** ***v.1.0.0***. This was developed for the merging of large weekly\
- attendance register files for the A-STEP in-house data team, as part of their weekly data pre-processing operations.')
+ attendance register files for the A_STEP in-house data team, as part of their weekly data pre-processing operations.')
     genre = st.radio(
     ":red[**How Would You Like MARS to Combine Your Files?**]💡",
     [":rainbow[**Concatinate**]", ":rainbow[**Right Join**]", ":rainbow[**Left Join:**]"],
@@ -109,7 +109,7 @@ bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
 
 if bulk_files:
     st.sidebar.success('File Uploaded', icon="✅")
-st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A-STEP</h1>", unsafe_allow_html=True)
+st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A_STEP</h1>", unsafe_allow_html=True)
 with st.sidebar.expander(":blue[Read More ⤵️]"):
     st.write(':grey[The Academic Student Tutorial Excellence Programme (A_STEP) provides both face-to-face and blended tutorials for students. These tutorials are led by trained senior \
     UFS students across all 7 faculties on the Bloemfontein campus as well as the 4 faculties on QwaQwa campus.  The tutors themselves are\
