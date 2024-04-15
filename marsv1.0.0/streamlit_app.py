@@ -63,7 +63,7 @@ custom_css = """
 
 [data-testid="stExpander"] .streamlit-expanderContent {
     background-color: #FFFFFF;
-    border: 2px solid #0E0153;
+    border: 2px solid #0072C9;
     padding: 20px;
     border-radius: 10px;
 }
