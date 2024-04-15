@@ -51,7 +51,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Instruction
 
 custom_css = """
 <style>
-[data-testid="stExpander"] .st-emotion-cache-1.eqpbllx5 {
+.st-emotion-cache-0.eqpbllx5 {
     background-color: #EBF5FB;
     border: 2px solid #0E0153;
     padding: 20px;
