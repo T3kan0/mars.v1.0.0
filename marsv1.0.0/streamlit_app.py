@@ -47,9 +47,11 @@ st.sidebar.markdown("![Alt Text](https://i.postimg.cc/gJzPdRYd/logio.png)")
 #st.sidebar.markdown('<img src = "app/static/logio.jpeg" style="width:100%">', unsafe_allow_html=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Instructions</h1>", unsafe_allow_html=True)
 
+
+
 custom_css = """
 <style>
-[data-testid="stExpander"] .streamlit-expanderHeader {
+[data-testid="stExpander"] .st-emotion-cache-0 eqpbllx5 {
     background-color: #EBF5FB;
     border: 2px solid #0E0153;
     padding: 20px;
