@@ -23,7 +23,7 @@ with z:
     st.markdown("![Alt Text](https://i.postimg.cc/05GkJpWY/reg.png)")
 with astep:
     st.markdown("<h4 style='text-align: center; color: darkred;'>Academic Student Tutorial Excellence Programme🧑🏼‍🎓 👨🏽‍🎓</h4>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center; color: darkred;'>Merging Attendance RegisterS (MARS)</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: darkred;'>merging attendance registers (mars)</h2>", unsafe_allow_html=True)
     st.write("<h5 style='text-align: center; color: darkred;'>version: 1.0.0.</h5>", unsafe_allow_html=True)    
 with logo:
     #st.markdown('<img src = "app/static/reg.png" style="width:100%">', unsafe_allow_html=True)
