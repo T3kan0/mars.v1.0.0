@@ -13,8 +13,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="auto",
 )
-
-
 z, astep, logo = st.columns([0.20, 0.65, 0.15])
 with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
