@@ -44,7 +44,6 @@ st.sidebar.markdown("![Alt Text](https://i.postimg.cc/gJzPdRYd/logio.png)")
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>Instructions</h1>", unsafe_allow_html=True)
 
 
-
 custom_css = """
 <style>
 .st-emotion-cache-0.eqpbllx4 {
