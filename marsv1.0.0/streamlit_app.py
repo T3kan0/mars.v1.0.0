@@ -328,9 +328,9 @@ if bulk_files is not None:
             with open('bulk_file.csv', "rb") as file:
                 # Convert to Excel (in memory)
                 excel_buffer = io.BytesIO()
-                    with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
-                        file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
-                    excel_data = excel_buffer.getvalue()
+                with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
+                    file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
+                excel_data = excel_buffer.getvalue()
                 btn = st.download_button(
                     label=":red[Download Aggregated File]",
                     data=excel_data,
