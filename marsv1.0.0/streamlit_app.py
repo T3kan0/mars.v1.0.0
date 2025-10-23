@@ -250,6 +250,7 @@ if bulk_files is not None:
                         files['CATALOG NBR'] = clm_ent
                         edited_files.append(files)
                         bulk = files.to_csv(index=False)
+                        st.session_state.aggre_files = files  # store in session
                     with st.spinner('Wait for it...'):
                         time.sleep(3)
                     st.success('Colums Successfully Added!', icon="✅")
