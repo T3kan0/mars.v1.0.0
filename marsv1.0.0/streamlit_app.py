@@ -326,11 +326,16 @@ if bulk_files is not None:
     
         if aggreg:
             with open('bulk_file.csv', "rb") as file:
+                # Convert to Excel (in memory)
+                excel_buffer = io.BytesIO()
+                    with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
+                        file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
+                    excel_data = excel_buffer.getvalue()
                 btn = st.download_button(
                     label=":red[Download Aggregated File]",
-                    data=file,
-                    file_name='new_file.csv',
-                    mime="file/csv"
+                    data=excel_data,
+                    file_name='Bulk_File_MARS.xlsx',
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
               )
         else:
             st.write(':blue[Press Aggregate Files to Continue]')
