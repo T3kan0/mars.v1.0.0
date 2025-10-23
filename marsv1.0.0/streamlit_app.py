@@ -316,15 +316,15 @@ if bulk_files is not None:
             elif len(n_files) >=1:
                 Rem_more = st.button(':red[Remove Columns:]')
                 st.write(':orange[This option will remove columns from the uploaded data files 👉🏾: ]')
-                if new_file is not None and isinstance(new_file, pd.DataFrame):
-                    st.success("✅ Using concatenated dataset from previous step.")
+#                if new_file is not None and isinstance(new_file, pd.DataFrame):
+#                    st.success("✅ Using concatenated dataset from previous step.")
 
         with adder:
             if len(n_files) == 0:
                 st.write(' ')
             elif len(n_files) >=1:
-                #dtt = pd.read_csv('bulk_file.csv')
-                lis = new_file.columns
+                dtt = pd.read_csv(new_file)
+                lis = dtt.columns
                 column_name = st.multiselect(
                     ':blue[Select Column Name: ⚙️]',
                      lis)
