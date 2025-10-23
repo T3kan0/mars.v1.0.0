@@ -250,7 +250,6 @@ if bulk_files is not None:
                         files['CATALOG NBR'] = clm_ent
                         edited_files.append(files)
                         bulk = files.to_csv(index=False)
-                        st.session_state.aggre_files = files  # store in session
                     with st.spinner('Wait for it...'):
                         time.sleep(3)
                     st.success('Colums Successfully Added!', icon="✅")
@@ -322,6 +321,8 @@ if bulk_files is not None:
                     files['CATALOG NBR'] = clm_ent
                     edited_files.append(files)
                     new_file = pd.concat(edited_files)
+                    st.session_state.aggre_files = new_file  # store in session
+                    
                     new_f = new_file.to_csv('bulk_file.csv')
                 progress_bar = st.progress(0)
                 for perc_completed in range(100):
@@ -337,7 +338,7 @@ if bulk_files is not None:
                 # Convert to Excel (in memory)
                 excel_buffer = io.BytesIO()
                 with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
-                    bulk_file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
+                    new_file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
                 excel_data = excel_buffer.getvalue()
                 btn = st.download_button(
                     label=":red[Download Aggregated File]",
