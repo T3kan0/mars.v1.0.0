@@ -302,7 +302,6 @@ if bulk_files is not None:
                     file_name='Bulk_File_MARS.xlsx',
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
-            st.session_state.aggre_files = new_file  # store in session
         else:
             st.write(':blue[Press Aggregate Files to Continue]')
 
@@ -323,7 +322,8 @@ if bulk_files is not None:
             if len(n_files) == 0:
                 st.write(' ')
             elif len(n_files) >=1:
-                dtt = pd.read_csv(new_file)
+                #dtt = pd.read_csv(new_file)
+                dtt = pd.DataFrame(new_file)
                 lis = dtt.columns
                 column_name = st.multiselect(
                     ':blue[Select Column Name: ⚙️]',
