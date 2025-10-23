@@ -132,10 +132,7 @@ st.sidebar.write('🌐 :blue[www.ufs.ac.za/ctl]')
 st.sidebar.info(':red[ 🚩 Web App Developer:] Tekano Mbonani', icon="ℹ️")
 
 col3, col4 = st.columns([.90,0.10], gap='small')
-#if 'column_choice' not in st.session_state:
-    #st.session_state['column_choice'] = 'SUBJECT'
-#if bulk_files:
-    #st.sidebar.success('File Uploaded', icon="✅")
+
 if bulk_files is not None:
     n_files = []
     Names = []
@@ -252,7 +249,7 @@ if bulk_files is not None:
                         files['SUBJECT'] = clm
                         files['CATALOG NBR'] = clm_ent
                         edited_files.append(files)
-                        bulk = files.to_csv()
+                        bulk = files.to_csv(index=False)
                     with st.spinner('Wait for it...'):
                         time.sleep(3)
                     st.success('Colums Successfully Added!', icon="✅")
