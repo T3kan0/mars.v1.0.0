@@ -279,7 +279,7 @@ if bulk_files is not None:
                     new_file = pd.concat(edited_files)
                     st.session_state.aggre_files = new_file  # store in session
                     
-                    new_f = new_file.to_csv('bulk_file.csv')
+                    #new_f = new_file.to_csv('bulk_file.csv')
                 progress_bar = st.progress(0)
                 for perc_completed in range(100):
                     time.sleep(0.05)
@@ -305,13 +305,9 @@ if bulk_files is not None:
         else:
             st.write(':blue[Press Aggregate Files to Continue]')
 
-
-
-
-
-
-    
+ 
     if edits == ":rainbow[**Remove Columns**]":
+        dtt = st.session_state.get("new_file", None)
         with selector:
             if len(n_files) == 0:
                 st.write(' ')
@@ -324,7 +320,7 @@ if bulk_files is not None:
                 st.write(' ')
             elif len(n_files) >=1:
                 #dtt = pd.read_csv('bulk_file.csv')
-                dtt = st.session_state.get("new_file", None)
+                #dtt = st.session_state.get("new_file", None)
                 lis = dtt.columns
                 column_name = st.multiselect(
                     ':blue[Select Column Name: ⚙️]',
@@ -356,48 +352,8 @@ if bulk_files is not None:
                         file_name='new_file.csv',
                         mime="file/csv"
               )
-                
-#    if edits == ":rainbow[**Add Columns**]":                
-#        aggreg = st.button(':red[Aggregate Files]')
-#        if aggreg:
-#            if len(n_files) == 0:
-#                st.error('Error❗:  No Files Uploaded 🤷🏽')
-#            elif len(n_files) == 1:
-#                st.warning(':red[Warning - Only A Single File Found ‼️]', icon="⚠️")
-#            elif len(n_files) >1:
-#                edited_files = []
-#                for files, clm, clm_ent in zip(n_files, clm_df['SUBJECT'], clm_df['CATALOG NBR']):
-#                    files['SUBJECT'] = clm
-#                    files['CATALOG NBR'] = clm_ent
-#                    edited_files.append(files)
-#                    new_file = pd.concat(edited_files)
-#                    st.session_state.aggre_files = new_file  # store in session
-                    
-#                    new_f = new_file.to_csv('bulk_file.csv')
-#                progress_bar = st.progress(0)
-#                for perc_completed in range(100):
-#                    time.sleep(0.05)
-#                progress_bar.progress(perc_completed+1)
-#                st.write(':blue[Bulk/Aggregated File]')
-#                st.write(edited_files[0].head())
-#                #st.write(edited_files[0]['SUBJECT'].unique())
-#                st.success('Files Successfully Merged!', icon="✅")               
-    
-#        if aggreg:
-            #with open('bulk_file.csv', "rb") as file:
-            # Convert to Excel (in memory)
- #           excel_buffer = io.BytesIO()
- #           with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
- #               new_file.to_excel(writer, index=False, sheet_name='Aggregated_Data')
- #           excel_data = excel_buffer.getvalue()
- #           btn = st.download_button(
- #                   label=":red[Download Aggregated File]",
- #                   data=excel_data,
- #                   file_name='Bulk_File_MARS.xlsx',
- #                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
- #           )
- #       else:
- #           st.write(':blue[Press Aggregate Files to Continue]')
+                                 
+           
             
     if edits == ":rainbow[**Change Column Names**]":
         if len(n_files) == 0:
