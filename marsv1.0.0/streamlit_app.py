@@ -274,7 +274,8 @@ if bulk_files is not None:
             if len(n_files) == 0:
                 st.write(' ')
             elif len(n_files) >=1:
-                dtt = pd.read_csv('bulk_file.csv')
+                #dtt = pd.read_csv('bulk_file.csv')
+                dtt = new_file
                 lis = dtt.columns
                 column_name = st.multiselect(
                     ':blue[Select Column Name: ⚙️]',
