@@ -307,7 +307,7 @@ if bulk_files is not None:
 
  
     if edits == ":rainbow[**Remove Columns**]":
-        new_file = st.session_state.get("new_file", None)
+        #new_file = st.session_state.get("new_file", None)
         
         with selector:
             if len(n_files) == 0:
