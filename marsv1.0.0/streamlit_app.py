@@ -106,8 +106,18 @@ bulk_files = st.sidebar.file_uploader(':blue[**Upload Files**:👇]',
                                      type=['xlsx', 'csv'],
                                      accept_multiple_files=True)
 
+# ---- Initialize session state ----
+if "uploaded_files" not in st.session_state:
+    st.session_state.uploaded_files = []
+
 if bulk_files:
+    st.session_state.uploaded_files = bulk_files 
     st.sidebar.success('File Uploaded', icon="✅")
+else:
+    st.session_state.uploaded_files = []
+    st.session_state.aggre_files = None  # reset when no files
+    
+
 st.sidebar.markdown("<h1 style='text-align: center; color: #090257;'>About A_STEP</h1>", unsafe_allow_html=True)
 with st.sidebar.expander(":blue[Read More ⤵️]"):
     st.write(':grey[The Academic Student Tutorial Excellence Programme (A_STEP) provides both face-to-face and blended tutorials for students. These tutorials are led by trained senior \
@@ -122,8 +132,8 @@ st.sidebar.write('🌐 :blue[www.ufs.ac.za/ctl]')
 st.sidebar.info(':red[ 🚩 Web App Developer:] Tekano Mbonani', icon="ℹ️")
 
 col3, col4 = st.columns([.90,0.10], gap='small')
-if 'column_choice' not in st.session_state:
-    st.session_state['column_choice'] = 'SUBJECT'
+#if 'column_choice' not in st.session_state:
+    #st.session_state['column_choice'] = 'SUBJECT'
 #if bulk_files:
     #st.sidebar.success('File Uploaded', icon="✅")
 if bulk_files is not None:
