@@ -302,6 +302,7 @@ if bulk_files is not None:
                     file_name='Bulk_File_MARS.xlsx',
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
+            st.session_state.aggre_files = new_file  # store in session
         else:
             st.write(':blue[Press Aggregate Files to Continue]')
 
