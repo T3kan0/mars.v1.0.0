@@ -309,7 +309,6 @@ if bulk_files is not None:
     if edits == ":rainbow[**Remove Columns**]":
         new_files = st.session_state.get("new_file", None)
         #st.session_state.aggre_files = new_file  # store in session
-        st.dataframe(new_files)
         
         with selector:
             if len(n_files) == 0:
