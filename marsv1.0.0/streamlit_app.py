@@ -279,7 +279,7 @@ if bulk_files is not None:
                     new_file = pd.concat(edited_files)
                     st.session_state.aggre_files = new_file  # store in session
                     
-                    #new_f = new_file.to_csv('bulk_file.csv')
+                    new_f = new_file.to_csv('bulk_file.csv')
                 progress_bar = st.progress(0)
                 for perc_completed in range(100):
                     time.sleep(0.05)
