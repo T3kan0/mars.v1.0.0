@@ -277,7 +277,7 @@ if bulk_files is not None:
                     files['CATALOG NBR'] = clm_ent
                     edited_files.append(files)
                     new_file = pd.concat(edited_files)
-                    st.session_state.aggre_files = new_file  # store in session
+                    st.session_state.uploaded_files = new_file  # store in session
                     
                     new_f = new_file.to_csv('bulk_file.csv')
                 progress_bar = st.progress(0)
