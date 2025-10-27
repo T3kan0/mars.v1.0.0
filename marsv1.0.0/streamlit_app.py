@@ -307,7 +307,7 @@ if bulk_files is not None:
 
  
     if edits == ":rainbow[**Remove Columns**]":
-        new_file = st.session_state.get("new_file", None)
+        #new_file = st.session_state.get("new_file", None)
         #st.session_state.aggre_files = new_file  # store in session
         
         with selector:
@@ -323,7 +323,7 @@ if bulk_files is not None:
             if len(n_files) == 0:
                 st.write(' ')
             elif len(n_files) >=1:
-                dtt = pd.read_csv(new_file)
+                dtt = pd.read_csv('bulk_file.csv')
                 #dtt = pd.DataFrame(new_file)
                 lis = dtt.columns
                 column_name = st.multiselect(
