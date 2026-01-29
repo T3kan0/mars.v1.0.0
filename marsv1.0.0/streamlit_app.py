@@ -6,7 +6,6 @@ import time
 from PIL import Image
 import re
 import io
-
 st.set_page_config(
     page_title="MARS",
     page_icon="🧊",
@@ -16,7 +15,6 @@ st.set_page_config(
 z, astep, logo = st.columns([0.20, 0.65, 0.15])
 with z:
     #st.markdown('<img src = "/marsv1.0.0/static/reg.png" style="width:47%">', unsafe_allow_html=True)
-    #st.write('📝')
     #st.markdown("<h1 style='text-align: left; color: darkred;'>📋✍🏽</h1>", unsafe_allow_html=True)
     st.markdown("![Alt Text](https://i.postimg.cc/05GkJpWY/reg.png)")
 with astep:
